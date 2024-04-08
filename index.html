@@ -1,0 +1,347 @@
+
+<!-- saved from url=(0217)http://lxxx.cccf.com.cn/lableFind.jsp?isFirst=isNotFirst&start=0&ipAddress=2408%3A824c%3Ac15%3A8d90%3Ad1cb%3A91fe%3A9f7d%3A86f&curPageNum=null&queryValue=1&recordFactoryId=&lableCode=54942AA69484AA&queryCount=&ipAddr= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>标志明码查询</title>
+    <link href="C:\Users\1\Desktop\东方AB签\标志明码查询_files\global.css" rel="stylesheet" type="text/css">
+    <link href="C:\Users\1\Desktop\东方AB签\标志明码查询_files\fhm.css" rel="stylesheet" type="text/css">   
+  <script type="text/javascript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\dwrService.js.下载"></script><script type="text/javascript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\engine.js.下载"></script><script type="text/javascript" src="标志明码查询_files/util.js.下载"></script><script language="JavaScript" src="标志明码查询_files/option.js.下载"></script><script language="JavaScript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\option.js.下载"></script><script language="JavaScript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\common.js.下载"></script><script language="JavaScript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\autocheckform.js.下载"></script><script language="JavaScript" src="标志明码查询_files/checkform.js.下载"></script><script language="JavaScript"> 
+//��ѯ
+function queryData(){
+	if(form1.lableCode.value == ""){
+		alert("����д��ǩ���룡");
+		return false;
+	}else{
+		var reg = /^\d{5}AA\d{5}AA$/
+		if(!reg.test(form1.lableCode.value)){
+			alert("��д�������ʽ����ȷ��")
+		}else{
+			form1.queryValue.value = "1";//�Ѿ���ѯ��
+			form1.action="./lableFind.jsp";
+			form1.submit();			
+		}
+	}
+}
+
+function loadPage(){
+	if(form1.lableCode.value != ""){
+		dwrService.getLableQueryInfo(form1.ipAddress.value ,form1.lableCode.value,callBack);
+	}
+}
+
+function callBack(data){
+	if(data != null){
+		if(data.isQuery == '1'){
+			if(data.queryCount != 0){
+				form1.queryCount.value = data.queryCount+1;
+				//form1.ipAddr.value = data.ipAddress+"("+data.ipArea+")";
+				form1.ipAddr.value = data.ipAddress;
+			}else{
+				form1.queryCount.value = "1";
+			}
+		}
+	}
+}
+
+// �� ��
+function clearForm()
+{	
+	form1.lableCode.value="";
+}
+
+//��������֤��ͼ��鱨��
+function connectCertificate(factoryID){
+	var windowDesign = 'status=no,maximize=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,top=100,left=100, resizable=yes,height=600,width=950';
+	window.open("http://www.cccf.com.cn/net/search/combinationSearch.jsp");
+}
+
+
+//��������֤��ͼ��鱨��
+function openHistory(lableCode){
+	var windowDesign = 'status=no,maximize=yes,scrollbars=no,toolbar=no,menubar=no,location=no,top=50,left=200, resizable=no,height=500,width=800'
+	window.open("http://lxxx.cccf.com.cn/queryLableHistory.jsp?lableCode="+lableCode,"_blank",windowDesign);
+}
+
+
+</script></head>
+  
+  
+  
+	
+  
+  
+  
+  
+  <!-- �����Զ���֤�õ����ļ� -->
+  
+  
+  
+  
+<body onload="loadPage()">
+  <!-- form1  ��ʼ -->
+  <form name="form1">  
+    <br>
+    <input type="hidden" name="isFirst" value="isNotFirst">
+    <input type="hidden" name="start" value="0">
+    <input type="hidden" name="ipAddress" id="ipAddress" value="2408:824c:c15:8d90:d1cb:91fe:9f7d:86f">
+    <input type="hidden" name="curPageNum" value="null">    	
+        <input type="hidden" name="queryValue" value="null">
+    <br>
+    <!-- ��ѯ����  ��ʼ -->
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->  
+    
+    <div class="Inquiry" style="height: 85px;display:none;">
+    	<img src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\LxxxImg.gif" width="100%" style="height: 85px;vertical-align: middle;">
+    </div>
+    <table class="Inquiry" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td class="Inquiry1"><h1 class="cpbt">明码查询</h1>
+          <label class="btwz">
+            <input class="bt" type="button" name="queryData2" id="button" value="查询" onclick="queryData()" style="cursor:hand;">
+            <input class="bt" type="button" name="button" id="button" value="重置" onclick="clearForm()" style="cursor:hand;">
+          </label>
+        </td>
+      </tr>     
+      <tr>
+        <td colspan="2" align="center" valign="top">
+               
+    <table class="wb" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td class="font_color pad_left" width="50%" height="30" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;标志明码
+          <input type="hidden" name="recordFactoryId" value="54942AA69484AA">		    
+          <input class="kuang" title="" maxlength="25" align="top" style="width:60%" name="lableCode" value="54942AA69484AA">   
+        </td>
+        <td class="font_color pad_left" valign="middle"  style="#000000"  nowrap="">
+       
+        </td>
+      </tr>
+    </tbody></table>
+    
+        </td>
+      </tr>
+    </tbody></table>
+    <!-- ��ѯ����  ���� -->
+
+
+	  <!--��Ʒ������Ϣ��ѯ���  ��ʼ-->
+	
+	<table width="96%" border="1" cellpadding="0" cellspacing="0" bordercolor="#929292" class="Tabulation" style="border-collapse:collapse;">
+		<tbody><tr class="h2">
+			<td class="pad_left" valign="middle" style="color:#900" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp; 产品生产信息</td>
+			<td colspan="3">
+			
+			
+			
+			</td>
+		</tr>
+		<tr class="h2">
+			<td class="pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;生产厂家&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="上海东方泵业(集团)有限公司" readonly="">
+			</td>	
+	      <td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;产品档案号 	&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="18XBD0F319FE6C8CE099D470690A15DC" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp; 产品名称 &nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="消防给水设备产品->消防泵组->电动机消防泵组->XBD4.0/25G-G(立式单级消防泵组)" readonly="">
+			</td>	
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;规格型号&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="XBD4.0/25G-G(立式单级消防泵组)" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp; 流向地区&nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="" readonly="">
+			</td>
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;流向单位 &nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="" readonly="">
+			</td>
+		</tr>
+		
+		<tr class="h2">
+		   <!--  
+		    <td class=" td_title"  nowrap>&nbsp;��Ʒ��ǩID&nbsp;</td>
+			<td width="30%" align="left" class="td_data">
+				<input type="text" class="kuang" style="width:80%" value='00L15J00302F02D00L15J00200600F' readonly>
+			</td>	
+		  -->
+		  
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;表单类型 &nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="1001" readonly="">
+			</td>
+
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp; 产品批号&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2"> 
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;生产时间&nbsp;</td>
+			<td width="40%" align="left" class="pad_left" style="col" colspan="3">
+				<input type="text" class="kuang" style="width:80%" value="2024-03-30 08:47:08" readonly="">
+			</td>	
+			<!-- 2019��9��17�� ע�͵�
+			 <td class="font_color pad_left" valign="middle" style="#000000"  nowrap>&nbsp;&nbsp;&nbsp;&nbsp;��ͬ��&nbsp;</td>			
+			<td width="40%" colspan="3" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value='' readonly>
+			</td>
+			 -->
+		</tr>
+		<tr class="h2">			
+		    <td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;质检员 &nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="05-江苏" readonly="">
+		  </td>
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap=""></td>			
+			<td width="40%" class="pad_left">
+				
+			</td>	
+		</tr>
+		
+		</tbody></table><table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+		<td valign="bottom" class="pad_left" style="color:#F00"><a href="http://lxxx.cccf.com.cn/lableFind.jsp?isFirst=isNotFirst&amp;start=0&amp;ipAddress=2408%3A824c%3Ac15%3A8d90%3Ad1cb%3A91fe%3A9f7d%3A86f&amp;curPageNum=null&amp;queryValue=1&amp;recordFactoryId=&amp;lableCode=54942AA69484AA&amp;queryCount=&amp;ipAddr=#" onclick="openHistory(&#39;54942AA69484AA&#39;)" type="button">历史查询记录</a></td>
+		
+		</tr>
+		</tbody></table>
+
+
+
+
+	<br>
+
+
+	
+
+
+
+
+	<table width="96%" border="1" cellpadding="0" cellspacing="0" bordercolor="#929292" class="Tabulation" style="border-collapse:collapse;">
+		<tbody><tr class="h2">
+			<td class="pad_left" valign="middle" style="color:#900" nowrap="" colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;产品流向信息</td>
+		</tr>
+
+		<tr class="h2">
+			<td class="pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;产品名称 &nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="消防给水设备产品->消防泵组->电动机消防泵组->XBD4.0/25G-G(立式单级消防泵组)" readonly="">
+			</td>	
+	      <td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;经销商信息&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="浙江鸿旭泵业有限公司" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;销售类别&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="流向信息上报" readonly="">
+			</td>	
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;到达日期&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="2024-04-03" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;流向地区&nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="河南省-&gt;开封市-&gt;杞县" readonly="">
+			</td>
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;生产厂家&nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="上海东方泵业(集团)有限公司" readonly="">
+			</td>
+		</tr>
+
+
+
+</tbody></table>
+
+	
+
+
+
+
+	<table width="96%" border="1" cellpadding="0" cellspacing="0" bordercolor="#929292" class="Tabulation" style="border-collapse:collapse;">
+		<tbody><tr class="h2">
+			<td class="pad_left" valign="middle" style="color:#900" nowrap="" colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;产品流向信息</td>
+		</tr>
+
+		<tr class="h2">
+			<td class="pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;产品名称&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="消防给水设备产品->消防泵组->电动机消防泵组->XBD4.0/25G-G(立式单级消防泵组)" readonly="">
+			</td>	
+	      <td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;经销商信息 &nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="浙江鸿旭泵业有限公司" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;销售类别&nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="经销商上报" readonly="">
+			</td>	
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;到达日期 &nbsp;</td>
+			<td width="40%" align="left" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="2024-04-03 08:57:17" readonly="">
+			</td>	
+		</tr>
+		<tr class="h2">
+
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;流向地区&nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="河南省-&gt;开封市-&gt;杞县" readonly="">
+			</td>
+			<td class="font_color pad_left" valign="middle" style="#000000" nowrap="">&nbsp;&nbsp;&nbsp;&nbsp;用户单位&nbsp;</td>			
+			<td width="40%" class="pad_left">
+				<input type="text" class="kuang" style="width:80%" value="华润风电（杞县）有限公司" readonly="">
+			</td>
+		</tr>
+
+
+
+</tbody></table>
+
+	
+<!-- add2017-7-21 18:17:58 -->
+
+<!-- end -->
+<br>
+
+	<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+	<!-- <td valign="bottom" class="pad_left" style="color:#F00"><a href="#" onclick="connectCertificate2('%C9%CF%BA%A3%B6%AB%B7%BD%B1%C3%D2%B5%28%BC%AF%CD%C5%29%D3%D0%CF%DE%B9%AB%CB%BE','XBD3.7%2F2.0W-DFCL-2%28%C1%A2%CA%BD%B6%E0%BC%B6%CF%FB%B7%C0%B1%C3%D7%E9%29','Z2016081811000730')">֤�鼰���鱨��</a></td>-->
+	<td valign="bottom" class="pad_left" style="color:#F00"><a href="http://lxxx.cccf.com.cn/lableFind.jsp?isFirst=isNotFirst&amp;start=0&amp;ipAddress=2408%3A824c%3Ac15%3A8d90%3Ad1cb%3A91fe%3A9f7d%3A86f&amp;curPageNum=null&amp;queryValue=1&amp;recordFactoryId=&amp;lableCode=54942AA69484AA&amp;queryCount=&amp;ipAddr=#" onclick="connectCertificate()">
+		产品证书等信息请在中国消防产品信息网（www.cccf.com.cn）查询</a></td>
+	</tr>
+	<tr><td style="color: red;padding: 15px;">
+
+		保密提醒：请严格按照国家法律法规要求使用信息系统， 严禁在系统中传输、存储或发布任何涉密信息或敏感信息，违者追究相关法律责任。	</td></tr>
+	</tbody></table>
+  <!--��Ʒ������Ϣ��ѯ���  ���� --> 	
+	 
+	<!-- ����β ��ʼ-->
+	<!-- ����β ����-->
+    
+</form>
+<script language="JavaScript" src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\jquery-1.8.3.min.js.下载"></script>
+<script language="javascript">
+        function ipCallback(i) {
+        	console.log(i.ip);
+        	$("#ipAddress").val(i.ip);
+        	form1.ipAddress.value=i.ip;
+        }
+    </script>
+    <script src="C:\Users\1\Desktop\东方AB签\标志明码查询_files\getip.php"></script>
+
+
+</body></html>
